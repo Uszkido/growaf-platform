@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Color Palette - Agricultural & Earth Tones */
+  --primary-green: #2ecc71;
+  --primary-dark: #27ae60;
+  --secondary-green: #27ae60;
+  --earth-brown: #3d2b1f;
+  --earth-light: #f4ece2;
+  --dark-bg: #0a0f0a;
+  --card-bg: #1a1f1a;
+  --text-main: #e0e0e0;
+  --text-muted: #a0a0a0;
+  --white: #ffffff;
+
+  /* Gradents */
+  --grad-green: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+  --grad-dark: linear-gradient(180deg, #1a1f1a 0%, #0a0f0a 100%);
+
+  /* Spacing & Borders */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --glass: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--dark-bg);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Outfit', sans-serif;
+  color: var(--white);
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: inherit;
+}
+
+/* Glassmorphism Utilities */
+.glass-effect {
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Base Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-hover:hover {
+  color: var(--primary-green);
+}
+
+.animate-fade {
+  animation: fadeIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+section {
+  position: relative;
+  z-index: 1;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+  transition: all 0.2s ease;
+}
+
+.glass-effect:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(46, 204, 113, 0.3);
+  transform: translateY(-5px);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
