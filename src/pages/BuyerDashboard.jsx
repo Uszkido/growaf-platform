@@ -2,8 +2,86 @@ import React, { useState, useEffect } from 'react'
 import { Navigate, Link } from 'react-router-dom'
 
 const BuyerDashboard = () => {
-    const [user, setUser] = useState(JSON.parse(localStorage.getItem('growaf_user')) || null)
-    const [activeTab, setActiveTab] = useState('orders')
+    const [user] = useState(JSON.parse(localStorage.getItem('growaf_user')) || null)
+    const [token] = useState(localStorage.getItem('growaf_token') || null)
+    const [activeTab, setActiveTab] = useState('wallet')
+    const [balance, setBalance] = useState(0)
+    const [loading, setLoading] = useState(false)
+    const API_URL = 'http://localhost:5000/api'
+
+    useEffect(() => {
+        if (user && user.role === 'Buyer') {
+            fetchBalance()
+
+            // Check for Paystack callback reference in URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const ref = urlParams.get('reference') || urlParams.get('trxref');
+            if (ref) {
+                verifyPayment(ref);
+            }
+        }
+    }, [user])
+
+    const verifyPayment = async (reference) => {
+        try {
+            const res = await fetch(`${API_URL}/wallets/verify/${reference}`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            })
+            const data = await res.json()
+            if (res.ok && data.status === 'success') {
+                alert(`Payment Successful! ₦${Number(data.amount).toLocaleString()} added to your wallet.`);
+                setBalance(prev => prev + Number(data.amount));
+                // Clean URL
+                window.history.replaceState({}, document.title, window.location.pathname);
+            } else {
+                alert(`Payment verification failed: ${data.message}`);
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        } catch (error) {
+            console.error("Verification error:", error)
+        }
+    }
+
+    const fetchBalance = async () => {
+        try {
+            const res = await fetch(`${API_URL}/wallets/balance`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            })
+            const data = await res.json()
+            if (data.balance !== undefined) setBalance(data.balance)
+        } catch (error) {
+            console.error("Error fetching balance:", error)
+        }
+    }
+
+    const handleFundWallet = async () => {
+        const amount = prompt("Enter amount to fund (₦):", "50000")
+        if (!amount || isNaN(amount)) return
+
+        setLoading(true)
+        try {
+            const res = await fetch(`${API_URL}/wallets/fund`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ amount: Number(amount) })
+            })
+            const data = await res.json()
+            if (res.ok) {
+                // Redirect to Paystack Checkout URL
+                window.location.href = data.authorization_url;
+            } else {
+                alert(data.message || "Failed to initialize payment");
+                setLoading(false);
+            }
+        } catch (error) {
+            console.error("Funding error", error)
+        } finally {
+            setLoading(false)
+        }
+    }
 
     // Security Check
     if (!user || user.role !== 'Buyer') {
@@ -24,7 +102,7 @@ const BuyerDashboard = () => {
                         <span style={{ fontSize: '1.5rem' }}>💳</span>
                         <div>
                             <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Wallet Balance</div>
-                            <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'var(--primary-green)' }}>₦{Number(user.wallet_balance || 0).toLocaleString()}</div>
+                            <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'var(--primary-green)' }}>₦{Number(balance).toLocaleString()}</div>
                         </div>
                     </div>
                 </div>
@@ -77,7 +155,9 @@ const BuyerDashboard = () => {
                                     <div className="glass-effect" style={{ padding: '2rem', borderRadius: 'var(--radius-md)' }}>
                                         <h3 style={{ marginBottom: '1rem' }}>Fund Wallet</h3>
                                         <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '1.5rem' }}>Add funds to securely purchase from African vendors via our internal escrow system.</p>
-                                        <button style={{ width: '100%', padding: '1rem', borderRadius: 'var(--radius-sm)', background: 'var(--grad-green)', color: 'white', fontWeight: 'bold', border: 'none', cursor: 'pointer' }}>Fund via Card/Bank</button>
+                                        <button onClick={handleFundWallet} disabled={loading} style={{ width: '100%', padding: '1rem', borderRadius: 'var(--radius-sm)', background: 'var(--grad-green)', color: 'white', fontWeight: 'bold', border: 'none', cursor: loading ? 'wait' : 'pointer' }}>
+                                            {loading ? 'Initializing Paystack...' : 'Fund via Card/Bank'}
+                                        </button>
                                     </div>
                                     <div className="glass-effect" style={{ padding: '2rem', borderRadius: 'var(--radius-md)' }}>
                                         <h3 style={{ marginBottom: '1rem' }}>Escrow Transactions</h3>
