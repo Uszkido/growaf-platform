@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 const Marketplace = () => {
     const [products, setProducts] = useState([])
     const [activeTab, setActiveTab] = useState('all')
-    const API_URL = 'http://localhost:5000/api'
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api'
 
     const categories = [
         { id: 1, name: 'Crops', icon: '🌾' },
