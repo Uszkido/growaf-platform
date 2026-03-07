@@ -21,7 +21,16 @@ const getProducts = async (req, res) => {
 // @desc    Create a new product (Protected)
 // @route   POST /api/products
 const createProduct = async (req, res) => {
-    const { name, description, price, stock, category_id, images } = req.body;
+    const { name, description, price, stock, category_id } = req.body;
+
+    // Extract secure Cloudinary URLs from the uploaded files
+    let images = [];
+    if (req.files && req.files.length > 0) {
+        images = req.files.map(file => file.path);
+    } else if (req.body.images) {
+        // Fallback for string-based mock injection testing
+        images = req.body.images;
+    }
 
     try {
         // Find store for the user

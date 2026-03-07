@@ -1,10 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const OpenAI = require('openai');
-const multer = require('multer');
-
-// Configure multer for memory storage for serverless environments
-const upload = multer({ storage: multer.memoryStorage() });
+const { uploadScan } = require('../config/cloudinary');
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
@@ -73,8 +70,12 @@ router.get('/yield-prediction', (req, res) => {
 });
 
 // Pest detection image scan simulation
-router.post('/pest-detect', upload.single('image'), async (req, res) => {
-    // In a real app we'd send req.file.buffer to OpenAI Vision API
+router.post('/pest-detect', uploadScan.single('image'), async (req, res) => {
+    // We now have a secure Cloudinary URL uploaded automatically via multer-storage-cloudinary
+    const imageUrl = req.file ? req.file.path : null;
+    console.log("Image successfully uploaded to Cloudinary:", imageUrl);
+
+    // In a real app we'd send imageUrl to OpenAI Vision API here.
     // Since we don't assume a valid key, we will simulate a high quality AI diagnosis
 
     // Slight delay to simulate processing
