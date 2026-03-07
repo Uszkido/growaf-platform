@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import MainLayout from './layouts/MainLayout'
-import Home from './pages/Home'
 import Marketplace from './pages/Marketplace'
+import SmartFarming from './pages/SmartFarming'
 import KnowledgeHub from './pages/KnowledgeHub'
 import Register from './pages/Register'
 import VendorDashboard from './pages/VendorDashboard'
@@ -55,6 +55,7 @@ function App() {
         <Route path="/" element={<MainLayout user={user} setShowAuthModal={setShowAuthModal} logout={logout} />}>
           <Route index element={<Home showAuthModal={showAuthModal} setShowAuthModal={setShowAuthModal} handleAuth={handleAuth} formData={formData} setFormData={setFormData} />} />
           <Route path="marketplace" element={<Marketplace />} />
+          <Route path="smart-farming" element={<SmartFarming />} />
           <Route path="hub" element={<KnowledgeHub />} />
           <Route path="register" element={<Register />} />
 

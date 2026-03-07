@@ -16,8 +16,8 @@ const MainLayout = ({ user, setShowAuthModal, logout }) => {
                         </div>
                     </Link>
 
-                    <div className="nav-links" style={{ display: 'flex', gap: '2.5rem', fontWeight: '500' }}>
                         <Link to="/marketplace" className="nav-hover">Marketplace</Link>
+                        <Link to="/smart-farming" className="nav-hover">Smart Farming</Link>
                         <Link to="/hub" className="nav-hover">Knowledge Hub</Link>
                         <a href="#community" className="nav-hover">Community</a>
                         <a href="#about" className="nav-hover">About</a>
@@ -52,7 +52,7 @@ const MainLayout = ({ user, setShowAuthModal, logout }) => {
                 <Outlet />
             </main>
 
-            {/* Language Switcher Float */}
+            {/* Language Switcher Float */ }
             <div style={{ position: 'fixed', bottom: '2rem', right: '2rem', zIndex: 1000 }} className="glass-effect">
                 <div style={{ padding: '0.8rem 1.2rem', borderRadius: 'var(--radius-sm)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }}>
                     🌐 English
@@ -73,6 +73,7 @@ const MainLayout = ({ user, setShowAuthModal, logout }) => {
                             <h4 style={{ marginBottom: '1.5rem', fontSize: '1.2rem', color: 'var(--white)' }}>Platform</h4>
                             <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                                 <li><Link to="/marketplace" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Marketplace</Link></li>
+                                <li><Link to="/smart-farming" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Smart Farming</Link></li>
                                 <li><Link to="/hub" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Knowledge Hub</Link></li>
                                 <li><a href="#community" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Community</a></li>
                             </ul>
@@ -98,7 +99,7 @@ const MainLayout = ({ user, setShowAuthModal, logout }) => {
                     </div>
                 </div>
             </footer>
-        </div>
+        </div >
     )
 }
 

@@ -23,12 +23,14 @@ const productRoutes = require('../routes/productRoutes');
 const walletRoutes = require('../routes/walletRoutes');
 const adminRoutes = require('../routes/adminRoutes');
 const aiRoutes = require('../routes/aiRoutes');
+const iotRoutes = require('../routes/iotRoutes');
 
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/wallets', walletRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/ai', aiRoutes);
+app.use('/api/iot', iotRoutes);
 
 // Error Handling Middleware
 app.use((err, req, res, next) => {

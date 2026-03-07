@@ -71,68 +71,7 @@ const Home = ({ showAuthModal, setShowAuthModal, handleAuth, formData, setFormDa
                 </div>
             </section>
 
-            {/* AI Smart Farming Hub Preview */}
-            <section id="ai-hub" style={{ padding: '8rem 0', background: 'var(--grad-dark)' }}>
-                <div className="container">
-                    <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
-                        <h2 style={{ fontSize: '3rem', marginBottom: '1rem' }}>AI Smart <span style={{ color: 'var(--primary-green)' }}>Farming Hub</span></h2>
-                        <p style={{ color: 'var(--text-muted)', maxWidth: '700px', margin: '0 auto' }}>Leverage cutting-edge Artificial Intelligence to optimize your yield and protect your crops.</p>
-                    </div>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '3rem' }}>
-                        <div className="glass-effect animate-fade" style={{ padding: '3rem', borderRadius: 'var(--radius-lg)' }}>
-                            <div style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>🤖</div>
-                            <h3 style={{ fontSize: '1.8rem', marginBottom: '1rem' }}>AI Crop Advisor</h3>
-                            <p style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>Input your soil type and location to get personalized planting recommendations.</p>
-                            <button style={{ padding: '1rem', borderRadius: 'var(--radius-sm)', background: 'var(--grad-green)', color: 'white', fontWeight: 'bold', width: '100%', border: 'none' }}>Try Advisor</button>
-                        </div>
-                        <div className="glass-effect animate-fade" style={{ padding: '3rem', borderRadius: 'var(--radius-lg)', border: '2px dashed rgba(46, 204, 113, 0.3)' }}>
-                            <div style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>🔍</div>
-                            <h3 style={{ fontSize: '1.8rem', marginBottom: '1rem' }}>Pest Detection</h3>
-                            <p style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>Upload a photo of your crop to identify pests and get solutions instantly.</p>
-                        </div>
-                        <div className="glass-effect animate-fade" style={{ padding: '3rem', borderRadius: 'var(--radius-lg)' }}>
-                            <div style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>📈</div>
-                            <h3 style={{ fontSize: '1.8rem', marginBottom: '1rem' }}>Yield Prediction</h3>
-                            <p style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>AI-driven forecasts for market prices and expected harvest volumes.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
-            {/* Precision Monitoring */}
-            <section id="precision-ag" style={{ padding: '8rem 0' }}>
-                <div className="container">
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'center' }}>
-                        <div className="glass-effect" style={{ borderRadius: 'var(--radius-lg)', padding: '3rem', position: 'relative', overflow: 'hidden' }}>
-                            <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'url("https://www.transparenttextures.com/patterns/grid-me.png")', opacity: '0.2' }}></div>
-                            <h3 style={{ fontSize: '2rem', marginBottom: '2rem' }}>Live Farm Monitoring</h3>
-                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
-                                <div style={{ padding: '1.5rem', background: 'rgba(0,0,0,0.4)', borderRadius: 'var(--radius-md)' }}>
-                                    <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>Soil Moisture</p>
-                                    <h4 style={{ fontSize: '1.5rem', color: 'var(--primary-green)' }}>64%</h4>
-                                </div>
-                                <div style={{ padding: '1.5rem', background: 'rgba(0,0,0,0.4)', borderRadius: 'var(--radius-md)' }}>
-                                    <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>Soil pH</p>
-                                    <h4 style={{ fontSize: '1.5rem', color: 'var(--primary-green)' }}>6.8</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <h2 style={{ fontSize: '2.8rem', marginBottom: '1.5rem' }}>Precision <span style={{ color: 'var(--primary-green)' }}>Monitoring</span></h2>
-                            <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', marginBottom: '2rem' }}>
-                                Harness the power of IoT and Satellite data. Monitor your farm in real-time and automate operations.
-                            </p>
-                            <ul style={{ listStyle: 'none', padding: 0 }}>
-                                {['Satellite Farm Mapping', 'Soil Moisture IoT Integration', 'Automated Irrigation Alerts'].map(item => (
-                                    <li key={item} style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '12px' }}>
-                                        <span style={{ color: 'var(--primary-green)' }}>✔</span> {item}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             {/* Our Vision / About */}
             <section id="about" style={{ padding: '8rem 0', background: 'var(--grad-dark)' }}>
