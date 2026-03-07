@@ -5,6 +5,12 @@ import Marketplace from './pages/Marketplace'
 import SmartFarming from './pages/SmartFarming'
 import KnowledgeHub from './pages/KnowledgeHub'
 import Register from './pages/Register'
+import About from './pages/About'
+import Community from './pages/Community'
+import HelpCenter from './pages/HelpCenter'
+import Safety from './pages/Safety'
+import Privacy from './pages/Privacy'
+import Terms from './pages/Terms'
 import VendorDashboard from './pages/VendorDashboard'
 import BuyerDashboard from './pages/BuyerDashboard'
 import AdminPortal from './pages/AdminPortal'
@@ -58,6 +64,12 @@ function App() {
           <Route path="smart-farming" element={<SmartFarming />} />
           <Route path="hub" element={<KnowledgeHub />} />
           <Route path="register" element={<Register />} />
+          <Route path="about" element={<About />} />
+          <Route path="community" element={<Community />} />
+          <Route path="help" element={<HelpCenter />} />
+          <Route path="safety" element={<Safety />} />
+          <Route path="privacy" element={<Privacy />} />
+          <Route path="terms" element={<Terms />} />
 
           {/* Dashboards */}
           <Route path="dashboard/buyer" element={<BuyerDashboard />} />

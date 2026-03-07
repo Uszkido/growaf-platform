@@ -16,11 +16,12 @@ const MainLayout = ({ user, setShowAuthModal, logout }) => {
                         </div>
                     </Link>
 
+                    <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
                         <Link to="/marketplace" className="nav-hover">Marketplace</Link>
                         <Link to="/smart-farming" className="nav-hover">Smart Farming</Link>
                         <Link to="/hub" className="nav-hover">Knowledge Hub</Link>
-                        <a href="#community" className="nav-hover">Community</a>
-                        <a href="#about" className="nav-hover">About</a>
+                        <Link to="/community" className="nav-hover">Community</Link>
+                        <Link to="/about" className="nav-hover">About</Link>
                     </div>
 
                     <div className="auth-btns" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
@@ -52,7 +53,7 @@ const MainLayout = ({ user, setShowAuthModal, logout }) => {
                 <Outlet />
             </main>
 
-            {/* Language Switcher Float */ }
+            {/* Language Switcher Float */}
             <div style={{ position: 'fixed', bottom: '2rem', right: '2rem', zIndex: 1000 }} className="glass-effect">
                 <div style={{ padding: '0.8rem 1.2rem', borderRadius: 'var(--radius-sm)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }}>
                     🌐 English
@@ -75,22 +76,22 @@ const MainLayout = ({ user, setShowAuthModal, logout }) => {
                                 <li><Link to="/marketplace" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Marketplace</Link></li>
                                 <li><Link to="/smart-farming" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Smart Farming</Link></li>
                                 <li><Link to="/hub" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Knowledge Hub</Link></li>
-                                <li><a href="#community" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Community</a></li>
+                                <li><Link to="/community" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Community</Link></li>
                             </ul>
                         </div>
                         <div>
                             <h4 style={{ marginBottom: '1.5rem', fontSize: '1.2rem', color: 'var(--white)' }}>Support</h4>
                             <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                                <li><a href="#" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Help Center</a></li>
-                                <li><a href="#" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Safety</a></li>
-                                <li><a href="#" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Contact</a></li>
+                                <li><Link to="/help" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Help Center</Link></li>
+                                <li><Link to="/safety" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Safety</Link></li>
+                                <li><Link to="/help" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Contact</Link></li>
                             </ul>
                         </div>
                         <div>
                             <h4 style={{ marginBottom: '1.5rem', fontSize: '1.2rem', color: 'var(--white)' }}>Legal</h4>
                             <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                                <li><a href="#" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Privacy</a></li>
-                                <li><a href="#" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Terms</a></li>
+                                <li><Link to="/privacy" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Privacy</Link></li>
+                                <li><Link to="/terms" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Terms</Link></li>
                             </ul>
                         </div>
                     </div>

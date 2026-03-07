@@ -73,25 +73,7 @@ const Home = ({ showAuthModal, setShowAuthModal, handleAuth, formData, setFormDa
 
 
 
-            {/* Our Vision / About */}
-            <section id="about" style={{ padding: '8rem 0', background: 'var(--grad-dark)' }}>
-                <div className="container">
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '4rem', alignItems: 'center' }}>
-                        <div>
-                            <h2 style={{ fontSize: '2.8rem', marginBottom: '1.5rem' }}>Our Vision</h2>
-                            <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem', marginBottom: '2.5rem', lineHeight: '1.7' }}>
-                                To transform African agriculture by connecting farmers, experts, and markets while promoting sustainable and modern farming practices.
-                            </p>
-                        </div>
-                        <div className="glass-effect" style={{ padding: '3rem', borderRadius: 'var(--radius-lg)' }}>
-                            <h3 style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>Bridging the Digital Gap</h3>
-                            <p style={{ color: 'var(--text-muted)', marginBottom: '2rem', fontSize: '1.1rem', lineHeight: '1.6' }}>
-                                We are more than just a marketplace. Growaf is a community-driven ecosystem designed to bring modern technology to traditional farming across Africa.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
         </>
     )
 }
