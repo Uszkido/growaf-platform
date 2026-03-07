@@ -7,7 +7,7 @@ const VendorDashboard = () => {
     const [vendorProducts, setVendorProducts] = useState([])
     const [showAddModal, setShowAddModal] = useState(false)
     const [productFormData, setProductFormData] = useState({ name: '', price: '', category_id: 1, description: '', stock: 10 })
-    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api'
+    const API_URL = import.meta.env.VITE_API_URL || '/api'
 
     const categories = [
         { id: 1, name: 'Crops' }, { id: 2, name: 'Livestock' }, { id: 3, name: 'Machinery' },

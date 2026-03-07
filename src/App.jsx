@@ -15,7 +15,7 @@ function App() {
   const [showAuthModal, setShowAuthModal] = useState(null) // 'login' or 'register'
   const [formData, setFormData] = useState({ name: '', email: '', password: '', role: 'Buyer', location: '' })
 
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api'
+  const API_URL = import.meta.env.VITE_API_URL || '/api'
 
   // Handle Authentication (Login for now, Registration moved to dedicated page)
   const handleAuth = async (e) => {

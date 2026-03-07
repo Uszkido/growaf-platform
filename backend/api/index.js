@@ -13,16 +13,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Basic Route
-app.get('/', (req, res) => {
-    res.json({ message: "Welcome to Growaf Backend API" });
+app.get('/api', (req, res) => {
+    res.json({ message: "Welcome to Growaf Backend API (Serverless)" });
 });
 
 // Routes
-const userRoutes = require('./routes/userRoutes');
-const productRoutes = require('./routes/productRoutes');
-const walletRoutes = require('./routes/walletRoutes');
-const adminRoutes = require('./routes/adminRoutes');
-const aiRoutes = require('./routes/aiRoutes');
+const userRoutes = require('../routes/userRoutes');
+const productRoutes = require('../routes/productRoutes');
+const walletRoutes = require('../routes/walletRoutes');
+const adminRoutes = require('../routes/adminRoutes');
+const aiRoutes = require('../routes/aiRoutes');
 
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
@@ -40,8 +40,5 @@ app.use((err, req, res, next) => {
     });
 });
 
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => {
-    console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
-});
+// Export for Vercel Serverless
+module.exports = app;
